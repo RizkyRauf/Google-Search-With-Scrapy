@@ -43,16 +43,17 @@ class GoogleSpider(CrawlSpider):
     url_list = []
     
     key = [
-        'Partai Kebangkitan Bangsa',
-        'pkb'
+        'phe oses turut dukung kesehatan nelayan',
+        'cari python'
         ]
     
     for keyword in key:
+        keyword = keyword.lower()
+        keyword = keyword.replace(" ", "+")
         page_number = ['0','10','20','30','40','50','60','70','80','90','100']
         for number in page_number:
             url = "{}{}&start={}".format(url_raw, keyword, number)
             url_list.append(url)
-
             
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36' }
 
